@@ -6,6 +6,7 @@ export function Application() {
             <p>All fields are mandatory</p>
             <span title='Close'>X</span>
             <img src='#' alt='a person with a laptop' />
+            <div data-testid='custom-element'>Custom HTML element</div>
             <form>
                 <div>
                     <label htmlFor='name'>Name</label>

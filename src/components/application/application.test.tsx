@@ -101,7 +101,9 @@ describe('Application', () => {
         expect(spanElement).toBeInTheDocument();
     });
 
-    test('', () => {
-
+    test('getByTestId', () => {
+        render(<Application />);
+        const divElement = screen.getByTestId('custom-element');
+        expect(divElement).toBeInTheDocument();
     });
 });
