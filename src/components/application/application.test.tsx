@@ -77,6 +77,12 @@ describe('Application', () => {
         expect(nameElement).toBeInTheDocument();
     });
 
+    test('getByText', () => {
+        render(<Application />);
+        const paraElement = screen.getByText('All fields are mandatory');
+        expect(paraElement).toBeInTheDocument();
+    });
+
     test('', () => {
 
     });
