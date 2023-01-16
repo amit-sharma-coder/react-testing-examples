@@ -95,6 +95,12 @@ describe('Application', () => {
         expect(imgElement).toBeInTheDocument();
     });
 
+    test('getByTitle', () => {
+        render(<Application />);
+        const spanElement = screen.getByTitle('Close');
+        expect(spanElement).toBeInTheDocument();
+    });
+
     test('', () => {
 
     });
