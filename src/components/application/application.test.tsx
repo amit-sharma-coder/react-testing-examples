@@ -83,6 +83,12 @@ describe('Application', () => {
         expect(paraElement).toBeInTheDocument();
     });
 
+    test('getByDisplayText', () => {
+        render(<Application />);
+        const nameElement = screen.getByDisplayValue('Amit');
+        expect(nameElement).toBeInTheDocument();
+    });
+
     test('', () => {
 
     });

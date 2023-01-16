@@ -7,7 +7,7 @@ export function Application() {
             <form>
                 <div>
                     <label htmlFor='name'>Name</label>
-                    <input type='text' id='name' placeholder='Full name' />
+                    <input type='text' id='name' placeholder='Full name' value='Amit' onChange={() => {}} />
                 </div>
                 <div>
                     <label htmlFor='bio'>Bio</label>
