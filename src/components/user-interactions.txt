@@ -1,0 +1,48 @@
+User Interactions
+-----------------
+- user-event is a companion library for RTL that simulates user interactions by dispatching the events that would happen if the interaction took place in a browser
+
+import user from '@testing-library/user-event';
+
+test('Renders a count of 1', async () => {
+    user.setup();       // This must be the first step for user-event to capture any event
+    render(<Counter />);
+
+    const incrementButton = screen.getByRole('button', {
+        name: 'Increment'
+    });
+    await user.click(incrementButton);
+    const countElement = screen.getByRole('heading');
+    expect(countElement).toHaveTextContent('1');
+});
+
+
+Convenience APIs
+-----------------
+- click()               - tab()
+- dblClick()            - hover()
+- tripleClick()         - unhover()
+
+test('Renders a count of 10', async () => {
+    user.setup();
+    render(<Counter />);
+    const amountInput = screen.getByRole('spinbutton');
+    await user.type(amountInput, '10');
+    expect(amountInput).toHaveValue(10);
+});
+
+
+Utility APIs
+-------------
+- type()        - selectOptions()
+- clear()       - deselectOptions()
+- upload()
+
+<select multiple>
+    <option value='1'>A</option>
+    <option value='2'>B</option>
+    <option value='3'>C</option>
+</select>
+
+await user.selectOptions(screen.getByRole('listbox'), ['1', 'C']);
+expect(screen.getByRole('option', {name: 'B'}).selected).toBe(false);

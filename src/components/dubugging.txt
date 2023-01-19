@@ -1,0 +1,13 @@
+There are two ways to debug in test cases
+
+1. screen.debug()
+
+2. logRoles
+
+import { render, screen } from '@testing-library/react';
+
+const view = render(<Skill />);
+logRoles(view.container);
+
+
+Note: You can also add Testing Playground Chrome extension to check roles on the page

@@ -1,0 +1,47 @@
+Qeries are methods that React Testing Library (RTL) provides to find elements on the page
+
+1. To find a single element
+    getBy..
+    queryBy..
+    findBy..
+
+2. To find multiple elements
+    getAllBy..
+    queryAllBy..
+    findAllBy..
+
+The suffix for above methods can be :
+- Role                      - DisplayValue
+- LabelText                 - AltText
+- PlaceholderText           - Title
+- Text                      - TestId
+
+
+getByRole
+----------
+- Queries for elements with the given role
+- By default, many semantic elements in HTML have a role
+    * Button element has button role
+    * Anchor element: link role
+    * h1 to h6 elements: heading role with level
+- If an element has no default role or if you want to specify a different role, the role attribute can be used to add the desired role
+- getByRole provides various options like
+    * name      * selected
+    * level     * checked
+    * hidden    * pressed
+
+NOTE: <input> with type as number, its role would be spinbutton and not the text
+
+
+queryBy
+--------
+- Returns the matching node for a query, and returns null if no element match
+- Useful for asserting an element that is not present
+- Throws an error if more than one match if found
+- queryByAll returns an array of all matching nodes for a query, and returns an empty array if no element match
+
+
+findBy and findAllBy
+--------------------
+- Returns a promise which resolves when an element is found which matches the given query
+- The promise is rejected if no element is found or if more than one element is found after a default timeout of 1000ms
