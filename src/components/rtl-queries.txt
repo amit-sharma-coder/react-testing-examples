@@ -45,3 +45,15 @@ findBy and findAllBy
 --------------------
 - Returns a promise which resolves when an element is found which matches the given query
 - The promise is rejected if no element is found or if more than one element is found after a default timeout of 1000ms
+
+
+Priority Order for Queries
+--------------------------
+1. getByRole
+2. getByLabelText
+3. getByPlaceholderText
+4. getByText
+5. getByDisplayValue
+6. getByAltText
+7. getByTitle
+8. getByTestId
