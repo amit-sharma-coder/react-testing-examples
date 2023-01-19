@@ -57,3 +57,30 @@ Priority Order for Queries
 6. getByAltText
 7. getByTitle
 8. getByTestId
+
+
+TextMatch - string
+-------------------
+<div>Hello World</div>
+
+screen.getByText('Hello World');                // full string match
+screen.getByText('llo', {exact: false})         // substring match
+screen.getByText('hello', {exact: false})       // ignore case
+
+
+TextMatch - regex
+------------------
+<div>Hello World</div>
+
+screen.getByText(/World/);                  // substring match
+screen.getByText(/world/i);                 // substring match and 'i' will ignore case
+screen.getByText(^/hello world$/i);         // full string match, ignore case
+
+
+TextMatch - custom function
+----------------------------
+(content?: string, element?: Element | null) => boolean
+
+<div>Hello World</div>
+
+screen.getByText((content) => content.startWith('Hello'));
