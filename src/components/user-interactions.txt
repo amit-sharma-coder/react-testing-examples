@@ -32,11 +32,28 @@ test('Renders a count of 10', async () => {
 });
 
 
+Pointer APIs
+-------------
+pointer({ keys: '[MouseLeft]'})                     // Left mouse button is simulated
+pointer({ keys: '[MouseLeft][MouseRight]'})         // Simulates the left click followed by the right click
+pointer('[MouseLeft][MouseRight')                   // Same as above, without the keys
+pointer('[MouseLeft>]')                             // Press the button without releasing it
+pointer('[/MouseLeft]')                             // For releasing the previously presses button
+
+
 Utility APIs
 -------------
 - type()        - selectOptions()
 - clear()       - deselectOptions()
 - upload()
+
+
+test('clear', () => {
+    render(<textarea defaultValue='Hello World!' />);
+    await userEvent.clear(screen.getByRole('textbox'));
+    expect(screen.getByRole('textbox')).toHaveValue('')
+});
+
 
 <select multiple>
     <option value='1'>A</option>
@@ -46,3 +63,5 @@ Utility APIs
 
 await user.selectOptions(screen.getByRole('listbox'), ['1', 'C']);
 expect(screen.getByRole('option', {name: 'B'}).selected).toBe(false);
+
+
