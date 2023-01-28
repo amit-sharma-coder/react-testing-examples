@@ -1,0 +1,59 @@
+Static Aanlysis Testing
+------------------------
+Process of verifying that your code meets certain expectations without actually running it
+- Ensure consistent style and formatting
+- Check for common mistakes and possible bugs
+- Limit the complexity of code
+- Verify Type consistency
+
+
+All other types of tests (unit tests, functional tests, integration tests etc.) run the code and then 
+compare the outcome against known expected outputs to see if everything works fine.
+
+On the other hand, static testing analysis aspects such as readibility, consistency, error handling, 
+type checking, and alignment with best practices.
+
+Testing checks if your code works or not, whereas static analysis checks if it is written well or not.
+
+
+Static Analysis testing tools
+------------------------------
+1. TypeScript
+
+2. ESlint: ESlint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code,
+    with the goal of making code more consistent and avoiding bugs
+
+a) npm i -D eslint-plugin-jest-dom     // This will add a plugin for eslint rules for testing in your app
+// then add plugin to the eslintConfig section of package.json file
+
+"eslintConfig": {
+    "extends": {
+        ...
+        "plugin: jest-dom/recommended"
+    }
+}
+
+b) Run eslint with npm script to identify errors in the project. Add script to the script section of package.json
+
+"scripts": {
+    ...
+    "lint": "eslint --ignore-path .gitignore ."
+}
+
+Then you can run this script using
+npm run lint
+
+3. Prettier: Prettier is an opinionated code formatter that ensures that all outputted code conforms to a consistent style
+a) npm i -D prettier
+b) add script to package.json
+    "scripts": {
+        ...
+        "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,css,scss}\""
+    }
+
+c) create .prettierrc.json file in the root of the folder
+d) npm i -D eslint-config-prettier
+add it to "extends" section of "eslintConfig"
+
+4. Husky: Husky is a tools that improves your commits
+5. lint-staged
